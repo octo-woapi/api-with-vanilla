@@ -1,5 +1,5 @@
 {
-  "name": "api-with-vanilla-javascript",
+  "name": "api-with-vanilla",
   "version": "1.0.0",
   "description": "A frameworkless API",
   "main": "index.js",
