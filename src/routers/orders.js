@@ -1,4 +1,4 @@
-module.exports = ({ orders, exceptions }) => {
+module.exports = ({ orders }, { MissingResourceError }) => {
   return {
     async route(request, response) {
       if (request.url.startsWith("/orders")) {
@@ -68,7 +68,7 @@ module.exports = ({ orders, exceptions }) => {
   };
 
   function getStatusCode(error) {
-    if (error instanceof exceptions.MissingResourceError) {
+    if (error instanceof MissingResourceError) {
       return 404;
     } else {
       return 400;

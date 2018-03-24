@@ -5,7 +5,7 @@ const Op = Sequelize.Op;
 module.exports = (
   schemas,
   models,
-  { ValidationError, MissingResourceError }
+  { MissingResourceError, ValidationError }
 ) => {
   return {
     create,
@@ -15,7 +15,7 @@ module.exports = (
     updateStatus
   };
 
-  async function create(data, res) {
+  async function create(data) {
     const { error } = Joi.validate(data, schemas.Order, {
       abortEarly: false
     });

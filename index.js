@@ -12,7 +12,7 @@ module.exports = async () => {
   const exceptions = require("./src/services/exceptions");
   const schemas = require("./src/schemas")();
   const services = require("./src/services")(schemas, models, exceptions);
-  const router = require("./src/routers")(services);
+  const router = require("./src/routers")(services, exceptions);
 
   server.on("request", router);
 

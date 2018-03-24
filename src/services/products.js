@@ -3,7 +3,7 @@ const Joi = require("joi");
 module.exports = (
   schemas,
   models,
-  { ValidationError, MissingResourceError }
+  { MissingResourceError, ValidationError }
 ) => {
   return { find, list, create, removeAll };
 

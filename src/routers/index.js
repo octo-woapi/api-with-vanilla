@@ -1,10 +1,10 @@
 const queryString = require("query-string");
 const url = require("url");
 
-module.exports = services => {
-  const productsRouter = require("./products")(services);
-  const ordersRouter = require("./orders")(services);
-  const billsRouter = require("./bills")(services);
+module.exports = (services, exceptions) => {
+  const productsRouter = require("./products")(services, exceptions);
+  const ordersRouter = require("./orders")(services, exceptions);
+  const billsRouter = require("./bills")(services, exceptions);
 
   return async (request, response) => {
     const { search } = url.parse(request.url);
