@@ -9,8 +9,9 @@ module.exports = async () => {
 
   await database.sync({});
 
+  const exceptions = require("./src/services/exceptions");
   const schemas = require("./src/schemas")();
-  const services = require("./src/services")(schemas, models);
+  const services = require("./src/services")(schemas, models, exceptions);
   const router = require("./src/routers")(services);
 
   server.on("request", router);

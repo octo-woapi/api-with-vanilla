@@ -1,9 +1,12 @@
 const Joi = require("joi");
 const Sequelize = require("sequelize");
 const Op = Sequelize.Op;
-const { MissingResourceError, ValidationError } = require("./exceptions");
 
-module.exports = (schemas, models) => {
+module.exports = (
+  schemas,
+  models,
+  { ValidationError, MissingResourceError }
+) => {
   return {
     create,
     find,

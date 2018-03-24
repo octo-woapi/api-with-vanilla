@@ -1,7 +1,10 @@
 const Joi = require("joi");
-const { MissingResourceError, ValidationError } = require("./exceptions");
 
-module.exports = (schemas, models) => {
+module.exports = (
+  schemas,
+  models,
+  { ValidationError, MissingResourceError }
+) => {
   return { find, list, create, removeAll };
 
   async function create(data) {
