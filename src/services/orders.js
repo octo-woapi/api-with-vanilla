@@ -98,7 +98,8 @@ module.exports = (
 
   async function removeAll() {
     const orderList = await models.Order.findAll();
-    orderList.forEach(order => order.destroy());
+    const promises = orderList.map(order => order.destroy());
+    return Promise.all(promises);
   }
 
   async function updateStatus(id, status) {

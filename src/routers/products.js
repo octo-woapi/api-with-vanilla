@@ -42,7 +42,7 @@ module.exports = ({ products }, { MissingResourceError }) => {
 
         if (request.method === "DELETE") {
           try {
-            products.removeAll();
+            await products.removeAll();
             response.statusCode = 204;
             response.end();
           } catch (e) {

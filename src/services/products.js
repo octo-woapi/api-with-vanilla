@@ -47,6 +47,7 @@ module.exports = (
 
   async function removeAll() {
     const productList = await models.Product.findAll();
-    productList.forEach(product => product.destroy());
+    const promises = productList.map(product => product.destroy());
+    return Promise.all(promises);
   }
 };
