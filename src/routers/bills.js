@@ -9,7 +9,7 @@ module.exports = ({ bills }) => {
         }
 
         if (request.method === "DELETE") {
-          bills.removeAll();
+          await bills.removeAll();
           response.statusCode = 204;
           response.end();
         }
